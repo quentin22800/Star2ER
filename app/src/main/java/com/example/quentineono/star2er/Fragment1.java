@@ -21,7 +21,8 @@ import java.util.Calendar;
 
 
 public class Fragment1 extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
-
+    private static final String STATE_DATE = "date";
+    private static final String STATE_TIME = "time";
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -78,7 +79,10 @@ public class Fragment1 extends Fragment implements View.OnClickListener, Adapter
         ////TO DO : make it VISIBLE again
         tDate.setOnClickListener(this);
         tTime.setOnClickListener(this);
-
+        if(savedInstanceState != null){
+            tDate.setText(savedInstanceState.getString(STATE_DATE));
+            tTime.setText(savedInstanceState.getString(STATE_TIME));
+        }
         return v;
     }
 
@@ -164,5 +168,12 @@ public class Fragment1 extends Fragment implements View.OnClickListener, Adapter
 
     public void setTime(int hour, int minute){
         tTime.setText(hour + "h" + minute);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(STATE_DATE,tDate.getText().toString());
+        outState.putString(STATE_TIME,tTime.getText().toString());
     }
 }

@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -23,9 +24,17 @@ public class Fragment3 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private static final String STATE_LIGNE = "ligne";
+    private static final String STATE_DIRECTION = "direction";
+    private static final String STATE_ARRET = "arret";
+    private static final String STATE_HEUREDEBUT = "heureDebut";
+    private static final String STATE_HEUREFIN = "heureFin";
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView tLigne, tDirection, tArret, tHeureDebut, tHeureFin;
 
     private OnFragment3Listener mListener;
 
@@ -64,7 +73,22 @@ public class Fragment3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment3, container, false);
+        View v = inflater.inflate(R.layout.fragment_fragment3, container, false);
+
+        tLigne = v.findViewById(R.id.textLigne);
+        tDirection = v.findViewById(R.id.textDirection);
+        tArret = v.findViewById(R.id.textArret);
+        tHeureDebut = v.findViewById(R.id.textHeureDebut);
+        tHeureFin = v.findViewById(R.id.textHeureFin);
+
+        if(savedInstanceState != null){
+            tLigne.setText(savedInstanceState.getString(STATE_LIGNE));
+            tDirection.setText(savedInstanceState.getString(STATE_DIRECTION));
+            tArret.setText(savedInstanceState.getString(STATE_ARRET));
+            tHeureDebut.setText(savedInstanceState.getString(STATE_HEUREDEBUT));
+            tHeureFin.setText(savedInstanceState.getString(STATE_HEUREFIN));
+        }
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -104,5 +128,14 @@ public class Fragment3 extends Fragment {
     public interface OnFragment3Listener {
         // TODO: Update argument type and name
         void onFragment3Interaction(Uri uri);
+    }
+
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(STATE_LIGNE,tLigne.getText().toString());
+        outState.putString(STATE_DIRECTION,tDirection.getText().toString());
+        outState.putString(STATE_ARRET,tArret.getText().toString());
+        outState.putString(STATE_HEUREDEBUT,tHeureDebut.getText().toString());
+        outState.putString(STATE_HEUREFIN,tHeureFin.getText().toString());
     }
 }
