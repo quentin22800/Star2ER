@@ -13,4 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         class="com.example.quentineono.star2er.Fragment1"/>
+    <fragment
+        android:id="@+id/fragment_2"
+        android:name="com.example.quentineono.star2er.Fragment2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        class="com.example.quentineono.star2er.Fragment2"/>
+    <fragment
+        android:id="@+id/fragment_3"
+        android:name="com.example.quentineono.star2er.Fragment3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        class="com.example.quentineono.star2er.Fragment3"/>
 </LinearLayout>

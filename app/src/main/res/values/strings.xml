@@ -5,4 +5,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="DateText">cliquer pour choisir date...</string>
     <string name="TimeText">cliquer pour choisir heure...</string>
+    <string name="TextLigneTitre">Ligne de bus :</string>
+    <string name="TextDirectionTitre">Direction :</string>
+    <string name="TextArretTitre">Arrêt :</string>
+    <string name="TextHeureDebutTitre">Heure de début :</string>
+    <string name="TextHeureFinTitre">Heure de fin :</string>
 </resources>
